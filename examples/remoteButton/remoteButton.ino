@@ -2,10 +2,12 @@
 #include "PCAL6254.h"
 
 
-/* This code is desinged to mimic the blink schetch found in the basic arduino library sample code 
+/* This code is desinged to mimic the Button schetch found in the basic arduino library sample code 
  * but with using the IO on the PCAL6254 insted of the built in IO
  * 
  * Please place a LED between the deisred pin and ground.
+ * 
+ * In this schetch the Input Pin is Set to P0_1 and the Output Pin is set to P0_0
  */
 
 
@@ -26,25 +28,32 @@ PCAL6524 io;  //Address Pin is tied to ground (DEFAULT)
  *    P0_6         P1_6       P2_6
  *    P0_7         P1_7       P2_7
  */
+// variables will change:
+int buttonState = 0;         // variable for reading the pushbutton statu
 
 
 
-// the setup function runs once when you press reset or power the board
 void setup() {
   
   //Join the MCU to the I2C buss as its master and resest the PCAL6524 to default;
   io.begin();
   //Initialize the desired Pin to desired mode (Input, or Output)
-  io.remotepinMode(P0_0, OUTPUT); //Seting Pin P0_0 to an Output);
+  io.remotepinMode(P0_0, OUTPUT); //Seting Pin P0_0 to an Output;
+  io.remotepinMode(P0_1, INPUT);  //Sets Pin P0_1 to be an Input;
 
 }
-// the loop function runs over and over again forever
 void loop() {
-  //Turn on the requested pin
-  io.remotedigitalWrite(P0_0, HIGH); //(HIGH is the voltage level)
-  delay(1000);// wait for a second
-  //Turn off the requested pin
+  // read the state of the pushbutton value:
+  buttonState = io.remotedigitalRead(P0_1);
+  // check if the pushbutton is pressed.
+  // if it is, the buttonState is HIGH:
+  if (buttonState == HIGH)
+  {
+    //turn LED ON
+    io.remotedigitalWrite(P0_0, HIGH);
+  }
+  else{  
+  //turn off ON
   io.remotedigitalWrite(P0_0, LOW);
-  delay(1000);// wait for a second
-  
+  }
 }
