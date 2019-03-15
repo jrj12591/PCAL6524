@@ -1,0 +1,51 @@
+#######################################
+# Syntax Coloring Map For PCAL6524
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+PCAL6524	KEYWORD1
+
+#######################################
+# Methods and Functions	(KEYWORD2)
+#######################################
+
+remotepinMode	KEYWORD2
+remotedigitalWrite	KEYWORD2
+remotedigitalRead	KEYWORD2
+
+
+#######################################
+# Instances	(KEYWORD2)
+#######################################
+
+
+#######################################
+# Constants	(LITERAL1)
+#######################################
+P0_0	LITERAL1
+P0_1	LITERAL1
+P0_2	LITERAL1
+P0_3	LITERAL1
+P0_4	LITERAL1
+P0_5	LITERAL1
+P0_6	LITERAL1
+P0_7	LITERAL1
+P0_0	LITERAL1
+P1_1	LITERAL1
+P1_2	LITERAL1
+P1_3	LITERAL1
+P1_4	LITERAL1
+P1_5	LITERAL1
+P1_6	LITERAL1
+P1_7	LITERAL1
+P2_1	LITERAL1
+P2_2	LITERAL1
+P2_3	LITERAL1
+P2_4	LITERAL1
+P2_5	LITERAL1
+P2_6	LITERAL1
+P2_7	LITERAL1
+INPUT_PULLDOWN	LITERAL1
